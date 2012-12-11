@@ -81,7 +81,7 @@ static inline unsigned ToByte(CGFloat f)
 {
     NSString *hex = nil;
     CGFloat red, green, blue, alpha;
-    if ([self getRed:&red green:&green blue:&blue alpha:&alpha]) {
+    if ([self cmr_getRed:&red green:&green blue:&blue alpha:&alpha]) {
         hex = [NSString stringWithFormat:@"#%02X%02X%02X",
                ToByte(red), ToByte(green), ToByte(blue)];
     }
@@ -92,7 +92,7 @@ static inline unsigned ToByte(CGFloat f)
 {
     NSString *rgb = nil;
     CGFloat red, green, blue, alpha;
-    if ([self getRed:&red green:&green blue:&blue alpha:&alpha]) {
+    if ([self cmr_getRed:&red green:&green blue:&blue alpha:&alpha]) {
         if (alpha == 1.0) {
             rgb = [NSString stringWithFormat:@"rgb(%u, %u, %u)",
                    ToByte(red), ToByte(green), ToByte(blue)];
@@ -119,7 +119,7 @@ static inline unsigned ToPercentage(CGFloat f)
 {
     NSString *hsl = nil;
     CGFloat hue, saturation, brightness, alpha;
-    if ([self getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha]) {
+    if ([self cmr_getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha]) {
         CMRFloatTriple hslVal = HSB2HSL(hue, saturation, brightness);
         if (alpha == 1.0) {
             hsl = [NSString stringWithFormat:@"hsl(%u, %u%%, %u%%)",
@@ -130,6 +130,47 @@ static inline unsigned ToPercentage(CGFloat f)
         }
     }
     return hsl;
+}
+
+// Fix up getting color components
+- (BOOL)cmr_getRed:(CGFloat *)red green:(CGFloat *)green blue:(CGFloat *)blue alpha:(CGFloat *)alpha
+{
+    if ([self getRed:red green:green blue:blue alpha:alpha]) {
+        return YES;
+    }
+
+    CGFloat white;
+    if ([self getWhite:&white alpha:alpha]) {
+        if (red)
+            *red = white;
+        if (green)
+            *green = white;
+        if (blue)
+            *blue = white;
+        return YES;
+    }
+
+    return NO;
+}
+
+- (BOOL)cmr_getHue:(CGFloat *)hue saturation:(CGFloat *)saturation brightness:(CGFloat *)brightness alpha:(CGFloat *)alpha
+{
+    if ([self getHue:hue saturation:saturation brightness:brightness alpha:alpha]) {
+        return YES;
+    }
+
+    CGFloat white;
+    if ([self getWhite:&white alpha:alpha]) {
+        if (hue)
+            *hue = 0;
+        if (saturation)
+            *saturation = 0;
+        if (brightness)
+            *brightness = white;
+        return YES;
+    }
+
+    return NO;
 }
 
 + (NSArray *)W3CColorNames
