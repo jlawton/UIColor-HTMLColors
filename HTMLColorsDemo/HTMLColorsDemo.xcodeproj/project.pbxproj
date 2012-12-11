@@ -1,0 +1,333 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A57DD771676C5B400610AF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A57DD761676C5B400610AF1 /* UIKit.framework */; };
+		1A57DD791676C5B400610AF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A57DD781676C5B400610AF1 /* Foundation.framework */; };
+		1A57DD7B1676C5B400610AF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A57DD7A1676C5B400610AF1 /* CoreGraphics.framework */; };
+		1A57DD811676C5B400610AF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A57DD7F1676C5B400610AF1 /* InfoPlist.strings */; };
+		1A57DD831676C5B400610AF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A57DD821676C5B400610AF1 /* main.m */; };
+		1A57DD871676C5B500610AF1 /* CMRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A57DD861676C5B500610AF1 /* CMRAppDelegate.m */; };
+		1A57DD891676C5B500610AF1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A57DD881676C5B500610AF1 /* Default.png */; };
+		1A57DD8B1676C5B500610AF1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A57DD8A1676C5B500610AF1 /* Default@2x.png */; };
+		1A57DD8D1676C5B500610AF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A57DD8C1676C5B500610AF1 /* Default-568h@2x.png */; };
+		1A57DD961676C5DE00610AF1 /* UIColor+HTMLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A57DD951676C5DE00610AF1 /* UIColor+HTMLColors.m */; };
+		1A57DD9E1676C64800610AF1 /* Transparent22.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A57DD9D1676C64800610AF1 /* Transparent22.png */; };
+		1A57DDA41676C6D300610AF1 /* CMRColorInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A57DDA21676C65D00610AF1 /* CMRColorInputViewController.m */; };
+		1A57DDA51676C6D900610AF1 /* CMRNamedColorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A57DDA01676C65500610AF1 /* CMRNamedColorsViewController.m */; };
+		1A57DDA61676C71200610AF1 /* CMRColorInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A57DDA31676C65D00610AF1 /* CMRColorInputViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A57DD721676C5B400610AF1 /* HTMLColorsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTMLColorsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A57DD761676C5B400610AF1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1A57DD781676C5B400610AF1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1A57DD7A1676C5B400610AF1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1A57DD7E1676C5B400610AF1 /* HTMLColorsDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HTMLColorsDemo-Info.plist"; sourceTree = "<group>"; };
+		1A57DD801676C5B400610AF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1A57DD821676C5B400610AF1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1A57DD841676C5B400610AF1 /* HTMLColorsDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HTMLColorsDemo-Prefix.pch"; sourceTree = "<group>"; };
+		1A57DD851676C5B500610AF1 /* CMRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMRAppDelegate.h; sourceTree = "<group>"; };
+		1A57DD861676C5B500610AF1 /* CMRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMRAppDelegate.m; sourceTree = "<group>"; };
+		1A57DD881676C5B500610AF1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1A57DD8A1676C5B500610AF1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1A57DD8C1676C5B500610AF1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1A57DD941676C5DE00610AF1 /* UIColor+HTMLColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HTMLColors.h"; sourceTree = "<group>"; };
+		1A57DD951676C5DE00610AF1 /* UIColor+HTMLColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HTMLColors.m"; sourceTree = "<group>"; };
+		1A57DD9D1676C64800610AF1 /* Transparent22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transparent22.png; sourceTree = "<group>"; };
+		1A57DD9F1676C65500610AF1 /* CMRNamedColorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMRNamedColorsViewController.h; sourceTree = "<group>"; };
+		1A57DDA01676C65500610AF1 /* CMRNamedColorsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMRNamedColorsViewController.m; sourceTree = "<group>"; };
+		1A57DDA11676C65D00610AF1 /* CMRColorInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMRColorInputViewController.h; sourceTree = "<group>"; };
+		1A57DDA21676C65D00610AF1 /* CMRColorInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMRColorInputViewController.m; sourceTree = "<group>"; };
+		1A57DDA31676C65D00610AF1 /* CMRColorInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CMRColorInputViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A57DD6F1676C5B400610AF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A57DD771676C5B400610AF1 /* UIKit.framework in Frameworks */,
+				1A57DD791676C5B400610AF1 /* Foundation.framework in Frameworks */,
+				1A57DD7B1676C5B400610AF1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A57DD671676C5B400610AF1 = {
+			isa = PBXGroup;
+			children = (
+				1A57DD7C1676C5B400610AF1 /* HTMLColorsDemo */,
+				1A57DD751676C5B400610AF1 /* Frameworks */,
+				1A57DD731676C5B400610AF1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A57DD731676C5B400610AF1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A57DD721676C5B400610AF1 /* HTMLColorsDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A57DD751676C5B400610AF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A57DD761676C5B400610AF1 /* UIKit.framework */,
+				1A57DD781676C5B400610AF1 /* Foundation.framework */,
+				1A57DD7A1676C5B400610AF1 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A57DD7C1676C5B400610AF1 /* HTMLColorsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				1A57DD931676C5DE00610AF1 /* Color Extensions */,
+				1A57DD981676C5F400610AF1 /* Freeform Input */,
+				1A57DD971676C5E400610AF1 /* Named Colors */,
+				1A57DD851676C5B500610AF1 /* CMRAppDelegate.h */,
+				1A57DD861676C5B500610AF1 /* CMRAppDelegate.m */,
+				1A57DD7D1676C5B400610AF1 /* Supporting Files */,
+			);
+			path = HTMLColorsDemo;
+			sourceTree = "<group>";
+		};
+		1A57DD7D1676C5B400610AF1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A57DD7E1676C5B400610AF1 /* HTMLColorsDemo-Info.plist */,
+				1A57DD7F1676C5B400610AF1 /* InfoPlist.strings */,
+				1A57DD821676C5B400610AF1 /* main.m */,
+				1A57DD841676C5B400610AF1 /* HTMLColorsDemo-Prefix.pch */,
+				1A57DD881676C5B500610AF1 /* Default.png */,
+				1A57DD8A1676C5B500610AF1 /* Default@2x.png */,
+				1A57DD8C1676C5B500610AF1 /* Default-568h@2x.png */,
+				1A57DD9D1676C64800610AF1 /* Transparent22.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1A57DD931676C5DE00610AF1 /* Color Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A57DD941676C5DE00610AF1 /* UIColor+HTMLColors.h */,
+				1A57DD951676C5DE00610AF1 /* UIColor+HTMLColors.m */,
+			);
+			name = "Color Extensions";
+			path = "../../Color Extensions";
+			sourceTree = "<group>";
+		};
+		1A57DD971676C5E400610AF1 /* Named Colors */ = {
+			isa = PBXGroup;
+			children = (
+				1A57DD9F1676C65500610AF1 /* CMRNamedColorsViewController.h */,
+				1A57DDA01676C65500610AF1 /* CMRNamedColorsViewController.m */,
+			);
+			name = "Named Colors";
+			sourceTree = "<group>";
+		};
+		1A57DD981676C5F400610AF1 /* Freeform Input */ = {
+			isa = PBXGroup;
+			children = (
+				1A57DDA11676C65D00610AF1 /* CMRColorInputViewController.h */,
+				1A57DDA21676C65D00610AF1 /* CMRColorInputViewController.m */,
+				1A57DDA31676C65D00610AF1 /* CMRColorInputViewController.xib */,
+			);
+			name = "Freeform Input";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A57DD711676C5B400610AF1 /* HTMLColorsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A57DD901676C5B500610AF1 /* Build configuration list for PBXNativeTarget "HTMLColorsDemo" */;
+			buildPhases = (
+				1A57DD6E1676C5B400610AF1 /* Sources */,
+				1A57DD6F1676C5B400610AF1 /* Frameworks */,
+				1A57DD701676C5B400610AF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HTMLColorsDemo;
+			productName = HTMLColorsDemo;
+			productReference = 1A57DD721676C5B400610AF1 /* HTMLColorsDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A57DD691676C5B400610AF1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CMR;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "James Lawton";
+			};
+			buildConfigurationList = 1A57DD6C1676C5B400610AF1 /* Build configuration list for PBXProject "HTMLColorsDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1A57DD671676C5B400610AF1;
+			productRefGroup = 1A57DD731676C5B400610AF1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A57DD711676C5B400610AF1 /* HTMLColorsDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A57DD701676C5B400610AF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A57DD811676C5B400610AF1 /* InfoPlist.strings in Resources */,
+				1A57DD891676C5B500610AF1 /* Default.png in Resources */,
+				1A57DD8B1676C5B500610AF1 /* Default@2x.png in Resources */,
+				1A57DD8D1676C5B500610AF1 /* Default-568h@2x.png in Resources */,
+				1A57DD9E1676C64800610AF1 /* Transparent22.png in Resources */,
+				1A57DDA61676C71200610AF1 /* CMRColorInputViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A57DD6E1676C5B400610AF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A57DD831676C5B400610AF1 /* main.m in Sources */,
+				1A57DD871676C5B500610AF1 /* CMRAppDelegate.m in Sources */,
+				1A57DD961676C5DE00610AF1 /* UIColor+HTMLColors.m in Sources */,
+				1A57DDA41676C6D300610AF1 /* CMRColorInputViewController.m in Sources */,
+				1A57DDA51676C6D900610AF1 /* CMRNamedColorsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1A57DD7F1676C5B400610AF1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A57DD801676C5B400610AF1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A57DD8E1676C5B500610AF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1A57DD8F1676C5B500610AF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A57DD911676C5B500610AF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HTMLColorsDemo/HTMLColorsDemo-Prefix.pch";
+				INFOPLIST_FILE = "HTMLColorsDemo/HTMLColorsDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1A57DD921676C5B500610AF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HTMLColorsDemo/HTMLColorsDemo-Prefix.pch";
+				INFOPLIST_FILE = "HTMLColorsDemo/HTMLColorsDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A57DD6C1676C5B400610AF1 /* Build configuration list for PBXProject "HTMLColorsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A57DD8E1676C5B500610AF1 /* Debug */,
+				1A57DD8F1676C5B500610AF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A57DD901676C5B500610AF1 /* Build configuration list for PBXNativeTarget "HTMLColorsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A57DD911676C5B500610AF1 /* Debug */,
+				1A57DD921676C5B500610AF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A57DD691676C5B400610AF1 /* Project object */;
+}
