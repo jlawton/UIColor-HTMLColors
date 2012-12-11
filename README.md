@@ -3,16 +3,42 @@ UIColor-HTMLColors
 
 Read and write HTML/CSS colors, with support for RGB hex triplets, RGB and RGBA, HSL and HSLA and CSS3 named colors.
 
-    #import "UIColor+HTMLColors.h"
-    
-    UIColor *red   = [UIColor colorWithCSS:@"hsla(0, 100%, 50%, 1.0)"];
-    UIColor *green = [UIColor colorWithCSS:@"#00FF00"];
-    UIColor *blue  = [UIColor colorWithCSS:@"rgb(0, 0, 255)"];
-    UIColor *clear = [UIColor colorWithCSS:@"transparent"];
-    UIColor *cyan  = [UIColor colorWithCSS:@"cyan"];
+Reading
+-------
+
+```objective-c
+#import "UIColor+HTMLColors.h"
+
+UIColor *red   = [UIColor colorWithCSS:@"hsla(0, 100%, 50%, 1.0)"];
+UIColor *green = [UIColor colorWithCSS:@"#00FF00"];
+UIColor *blue  = [UIColor colorWithCSS:@"rgb(0, 0, 255)"];
+UIColor *clear = [UIColor colorWithCSS:@"transparent"];
+UIColor *cyan  = [UIColor colorWithCSS:@"cyan"];
+```
 
 The parsing is based on NSScanner, so scanning methods are available for easy integration with your larger scanning needs.
 
+```objective-c
+NSScanner *scanner; // Defined elsewhere
+
+UIColor *color;
+if ([scanner scanCSSColor:&color]) {
+    // Congratulations, you've got a color
+}
+```
+
+Writing
+-------
+
+Everyone likes a bit of symmetry, and it's nice to be able to write out colors in the formats you can read. Methods are provided for writing all but the named colors, because they cover such a small subset of all possible colors.
+
+```objective-c
+UIColor *color = [UIColor colorWithCSS:@"DarkOliveGreen"];
+NSString *hsl = [color hslStringValue];
+// => @"hsl(82, 39%, 30%)"
+```
+
+Converting between representations may incur a small error, as components are rounded (eg. hue to the nearest degree, percentages to the nearest 1%).
 
 License
 -------
