@@ -1,6 +1,5 @@
 //
 //  UIColor+HTMLColors.h
-//  Commodore
 //
 //  Created by James Lawton on 12/9/12.
 //  Copyright (c) 2012 James Lawton. All rights reserved.
