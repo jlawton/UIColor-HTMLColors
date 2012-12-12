@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *hexLabel;
 @property (nonatomic, strong) IBOutlet UILabel *rgbLabel;
 @property (nonatomic, strong) IBOutlet UILabel *hslLabel;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 @end
 
 
@@ -44,6 +45,9 @@
     [self.colorInputField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Named Colors" style:UIBarButtonItemStyleBordered target:self action:@selector(pushNamedColors)];
+
+    self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [self.view addGestureRecognizer:self.tapGesture];
 }
 
 - (void)pushNamedColors
@@ -77,13 +81,9 @@
     [self updateColorWithText:textField.text];
 }
 
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-//{
-//    if (object == self.colorInputField && [keyPath isEqualToString:@"text"]) {
-//        [self updateColorWithText:[change objectForKey:NSKeyValueChangeNewKey]];
-//    } else {
-//        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-//    }
-//}
+- (void)dismissKeyboard:(UITapGestureRecognizer *)tap
+{
+    [self.colorInputField resignFirstResponder];
+}
 
 @end
