@@ -378,7 +378,7 @@ static NSUInteger CMRParseHex(NSString *str, BOOL repeated)
     if (repeated) {
         str = [NSString stringWithFormat:@"%@%@", str, str];
     }
-    NSScanner *scanner = [[NSScanner alloc] initWithString:str];
+    NSScanner *scanner = [NSScanner scannerWithString:str];
     [scanner scanHexInt:&ans];
     return ans;
 }
