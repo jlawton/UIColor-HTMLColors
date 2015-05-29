@@ -383,28 +383,39 @@ static NSUInteger CMRParseHex(NSString *str, BOOL repeated)
     return (NSUInteger)ans;
 }
 
-// Scan FFF or FFFFFF, doesn't reset scan location on failure
+// Scan FFF, FFFF, FFFFFF or FFFFFFFF, doesn't reset scan location on failure
 - (BOOL)cmr_scanHexTriple:(UIColor **)color
 {
     NSString *hex = nil;
-    NSRange range = [self cmr_scanCharactersInSet:CMRHexCharacters() maxLength:6 intoString:&hex];
-    CGFloat red, green, blue;
-    if (hex.length == 6) {
+    NSRange range = [self cmr_scanCharactersInSet:CMRHexCharacters() maxLength:8 intoString:&hex];
+    CGFloat red, green, blue, alpha;
+    if (hex.length >= 6) {
         // Parse 2 chars per component
         red   = CMRParseHex([hex substringWithRange:NSMakeRange(0, 2)], NO) / 255.0;
         green = CMRParseHex([hex substringWithRange:NSMakeRange(2, 2)], NO) / 255.0;
         blue  = CMRParseHex([hex substringWithRange:NSMakeRange(4, 2)], NO) / 255.0;
+        if (hex.length == 8) {
+            alpha = CMRParseHex([hex substringWithRange:NSMakeRange(6, 2)], NO) / 255.0;
+        } else {
+            alpha = 1;
+        }
     } else if (hex.length >= 3) {
         // Parse 1 char per component, but repeat it to calculate hex value
         red   = CMRParseHex([hex substringWithRange:NSMakeRange(0, 1)], YES) / 255.0;
         green = CMRParseHex([hex substringWithRange:NSMakeRange(1, 1)], YES) / 255.0;
         blue  = CMRParseHex([hex substringWithRange:NSMakeRange(2, 1)], YES) / 255.0;
-        self.scanLocation = range.location + 3;
+        if (hex.length >= 4) {
+            alpha = CMRParseHex([hex substringWithRange:NSMakeRange(3, 1)], YES) / 255.0;
+            self.scanLocation = range.location + 4;
+        } else {
+            alpha = 1;
+            self.scanLocation = range.location + 3;
+        }
     } else {
         return NO; // Fail
     }
     if (color) {
-        *color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+        *color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
     }
     return YES;
 }
