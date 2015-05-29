@@ -666,6 +666,7 @@ static NSDictionary *CMRW3CNamedColors() {
             @"Plum" : @"#DDA0DD",
             @"PowderBlue" : @"#B0E0E6",
             @"Purple" : @"#800080",
+            @"RebeccaPurple": @"#663399",
             @"Red" : @"#FF0000",
             @"RosyBrown" : @"#BC8F8F",
             @"RoyalBlue" : @"#4169E1",
