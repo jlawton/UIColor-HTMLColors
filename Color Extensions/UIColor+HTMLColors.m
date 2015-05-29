@@ -83,6 +83,9 @@ static inline unsigned ToByte(CGFloat f)
     if ([self cmr_getRed:&red green:&green blue:&blue alpha:&alpha]) {
         hex = [NSString stringWithFormat:@"#%02X%02X%02X",
                ToByte(red), ToByte(green), ToByte(blue)];
+        if (alpha < 1.0) {
+            hex = [hex stringByAppendingFormat:@"%02X", ToByte(alpha)];
+        }
     }
     return hex;
 }
