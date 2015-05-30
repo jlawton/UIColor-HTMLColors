@@ -190,7 +190,6 @@ static inline unsigned ToPercentage(CGFloat f)
     return [self scanHexColor:color]
         || [self scanRGBColor:color]
         || [self scanHSLColor:color]
-        || [self cmr_scanTransparent:color]
         || [self scanW3CNamedColor:color];
 }
 
@@ -421,20 +420,6 @@ static NSUInteger CMRParseHex(NSString *str, BOOL repeated)
         *color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
     }
     return YES;
-}
-
-// Scan "transparent"
-- (BOOL)cmr_scanTransparent:(UIColor **)color
-{
-    return [self cmr_caseInsensitiveWithCleanup:^BOOL{
-        if ([self scanString:@"transparent" intoString:NULL]) {
-            if (color) {
-                *color = [UIColor colorWithWhite:0 alpha:0];
-            }
-            return YES;
-        }
-        return NO;
-    }];
 }
 
 // Scan a float or percentage. Multiply float by `scale` if it was not a
@@ -708,7 +693,8 @@ static NSDictionary *CMRW3CNamedColors() {
             @"White" : @"#FFFFFF",
             @"WhiteSmoke" : @"#F5F5F5",
             @"Yellow" : @"#FFFF00",
-            @"YellowGreen" : @"#9ACD32"
+            @"YellowGreen" : @"#9ACD32",
+            @"transparent": @"#0000", // Transparent black
         };
     });
     return namedColors;
