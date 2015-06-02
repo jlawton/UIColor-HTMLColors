@@ -190,6 +190,7 @@ static inline unsigned ToPercentage(CGFloat f)
     return [self scanHexColor:color]
         || [self scanRGBColor:color]
         || [self scanHSLColor:color]
+        || [self scanGrayColor:color]
         || [self scanW3CNamedColor:color];
 }
 
@@ -211,6 +212,37 @@ static inline unsigned ToPercentage(CGFloat f)
             if ([self cmr_scanFloatTriple:&t scale:scale]) {
                 if (color) {
                     *color = [UIColor colorWithRed:t.a green:t.b blue:t.c alpha:1.0];
+                }
+                return YES;
+            }
+        }
+        return NO;
+    }];
+}
+
+- (BOOL)scanGrayColor:(UIColor **)color
+{
+    return [self cmr_caseInsensitiveWithCleanup:^BOOL{
+        if ([self scanString:@"gray" intoString:NULL]) {
+            CGFloat grayValue;
+            BOOL success = [self scanString:@"(" intoString:NULL]
+                && [self cmr_scanNum:&grayValue scale:1.0/255.0];
+
+            if (!success) {
+                return NO;
+            }
+
+            __block CGFloat alphaValue = 1;
+            [self cmr_resetScanLocationOnFailure:^BOOL{
+                return [self scanString:@"," intoString:NULL]
+                    && [self cmr_scanNum:&alphaValue scale:1.0/255.0];
+            }];
+
+            success = [self scanString:@")" intoString:NULL];
+
+            if (success) {
+                if (color) {
+                    *color = [UIColor colorWithWhite:grayValue alpha:alphaValue];
                 }
                 return YES;
             }
