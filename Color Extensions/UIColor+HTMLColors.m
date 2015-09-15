@@ -7,7 +7,6 @@
 
 #import "UIColor+HTMLColors.h"
 
-
 typedef struct {
     CGFloat a, b, c;
 } CMRFloatTriple;
@@ -182,6 +181,7 @@ static inline unsigned ToPercentage(CGFloat f)
 
 @end
 
+#pragma mark -
 
 @implementation NSScanner (HTMLColors)
 
@@ -257,11 +257,13 @@ static inline CGFloat CMRNormHue(CGFloat hue)
     return hue - floor(hue);
 }
 
+#define DEG (1.0 / 360.0)
+
 - (BOOL)scanHSLColor:(UIColor **)color
 {
     return [self cmr_caseInsensitiveWithCleanup:^BOOL{
         if ([self scanString:@"hsla" intoString:NULL]) {
-            CMRFloatQuad scale = {1.0/360.0, 1.0, 1.0, 1.0};
+            CMRFloatQuad scale = {DEG, 1.0, 1.0, 1.0};
             CMRFloatQuad q;
             if ([self cmr_scanFloatQuad:&q scale:scale]) {
                 if (color) {
@@ -271,7 +273,7 @@ static inline CGFloat CMRNormHue(CGFloat hue)
                 return YES;
             }
         } else if ([self scanString:@"hsl" intoString:NULL]) {
-            CMRFloatTriple scale = {1.0/360.0, 1.0, 1.0};
+            CMRFloatTriple scale = {DEG, 1.0, 1.0};
             CMRFloatTriple t;
             if ([self cmr_scanFloatTriple:&t scale:scale]) {
                 if (color) {
@@ -310,7 +312,7 @@ static inline CGFloat CMRNormHue(CGFloat hue)
     }];
 }
 
-#pragma mark - Private
+#pragma mark - General Parsing Helpers
 
 - (void)cmr_withSkip:(NSCharacterSet *)chars run:(void (^)(void))block
 {
@@ -395,6 +397,8 @@ static inline CGFloat CMRNormHue(CGFloat hue)
     return charRange;
 }
 
+#pragma mark - Hex Parsing
+
 // Hex characters
 static NSCharacterSet *CMRHexCharacters() {
     static NSCharacterSet *hexChars;
@@ -453,6 +457,8 @@ static NSUInteger CMRParseHex(NSString *str, BOOL repeated)
     }
     return YES;
 }
+
+#pragma mark - Component Parsing
 
 // Scan a float or percentage. Multiply float by `scale` if it was not a
 // percentage.
@@ -519,12 +525,14 @@ static NSUInteger CMRParseHex(NSString *str, BOOL repeated)
 
 @end
 
+#pragma mark - Colorspace Transforms
+
 static inline CMRFloatTriple HSB2HSL(CGFloat hue, CGFloat saturation, CGFloat brightness)
 {
     CGFloat l = (2.0 - saturation) * brightness;
     saturation *= brightness;
     CGFloat satDiv = (l <= 1.0) ? l : (2.0 - l);
-    if (satDiv) {
+    if (satDiv != 0.0) {
         saturation /= satDiv;
     }
     l *= 0.5;
@@ -541,7 +549,7 @@ static inline CMRFloatTriple HSL2HSB(CGFloat hue, CGFloat saturation, CGFloat l)
     l *= 2.0;
     CGFloat s = saturation * ((l <= 1.0) ? l : (2.0 - l));
     CGFloat brightness = (l + s) * 0.5;
-    if (s) {
+    if (s != 0.0) {
         s = (2.0 * s) / (l + s);
     }
     CMRFloatTriple hsb = {
