@@ -102,6 +102,11 @@
 - (BOOL)scanHexColor:(UIColor **)color;
 
 /**
+ * Scan a gray color ("gray(50)", "gray(110, 70%)")
+ */
+- (BOOL)scanGrayColor:(UIColor **)color;
+
+/**
  * Scan a CSS3/SVG named color. These are similar to the X11 named colors.
  * See: http://www.w3.org/TR/css3-color/#svg-color
  */
