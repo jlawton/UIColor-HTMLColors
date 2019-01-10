@@ -5,7 +5,11 @@
 //  Copyright (c) 2012 James Lawton. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#if !TARGET_OS_IPHONE && TARGET_OS_MAC
+
+#define UIColor NSColor
+
+#endif
 
 /**
  * Extensions to read and write colors in the formats supported by CSS.

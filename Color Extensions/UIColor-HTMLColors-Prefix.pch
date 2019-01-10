@@ -1,0 +1,26 @@
+//
+//  UIColor-HTMLColors-Prefix.pch
+//  UIColor-HTMLColors
+//
+//  Created by LiaoWei@UNNOO.COM on 2019/1/10.
+//  Copyright © 2019 vvveiii. All rights reserved.
+//
+
+#ifndef UIColor_HTMLColors_Prefix_pch
+#define UIColor_HTMLColors_Prefix_pch
+
+#import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+
+#if TARGET_OS_IPHONE
+
+#import <UIKit/UIKit.h>
+
+#elif TARGET_OS_MAC
+
+#import <AppKit/AppKit.h>
+#define UIColor NSColor
+
+#endif
+
+#endif /* UIColor_HTMLColors_Prefix_pch */
