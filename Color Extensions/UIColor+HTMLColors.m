@@ -136,6 +136,7 @@ static inline unsigned ToPercentage(CGFloat f)
 // Fix up getting color components
 - (BOOL)cmr_getRed:(CGFloat *)red green:(CGFloat *)green blue:(CGFloat *)blue alpha:(CGFloat *)alpha
 {
+#if TARGET_OS_IPHONE
     if ([self getRed:red green:green blue:blue alpha:alpha]) {
         return YES;
     }
@@ -150,12 +151,31 @@ static inline unsigned ToPercentage(CGFloat f)
             *blue = white;
         return YES;
     }
+#elif TARGET_OS_MAC
+    NSColorSpaceModel colorSpaceModel = self.colorSpace.colorSpaceModel;
+    if (colorSpaceModel == NSColorSpaceModelRGB) {
+        [self getRed:red green:green blue:blue alpha:alpha];
 
+        return YES;
+    } else if (colorSpaceModel == NSColorSpaceModelGray) {
+        CGFloat white;
+        [self getWhite:&white alpha:alpha];
+        if (red)
+            *red = white;
+        if (green)
+            *green = white;
+        if (blue)
+            *blue = white;
+
+        return YES;
+    }
+#endif
     return NO;
 }
 
 - (BOOL)cmr_getHue:(CGFloat *)hue saturation:(CGFloat *)saturation brightness:(CGFloat *)brightness alpha:(CGFloat *)alpha
 {
+#if TARGET_OS_IPHONE
     if ([self getHue:hue saturation:saturation brightness:brightness alpha:alpha]) {
         return YES;
     }
@@ -170,7 +190,25 @@ static inline unsigned ToPercentage(CGFloat f)
             *brightness = white;
         return YES;
     }
+#elif TARGET_OS_MAC
+    NSColorSpaceModel colorSpaceModel = self.colorSpace.colorSpaceModel;
+    if (colorSpaceModel == NSColorSpaceModelRGB) {
+        [self getHue:hue saturation:saturation brightness:brightness alpha:alpha];
 
+        return YES;
+    } else if (colorSpaceModel == NSColorSpaceModelGray) {
+        CGFloat white;
+        [self getWhite:&white alpha:alpha];
+        if (hue)
+            *hue = 0;
+        if (saturation)
+            *saturation = 0;
+        if (brightness)
+            *brightness = white;
+
+        return YES;
+    }
+#endif
     return NO;
 }
 
@@ -224,7 +262,7 @@ static inline unsigned ToPercentage(CGFloat f)
 {
     return [self cmr_caseInsensitiveWithCleanup:^BOOL{
         if ([self scanString:@"gray" intoString:NULL]) {
-            CGFloat grayValue;
+            CGFloat grayValue = 0;
             BOOL success = [self scanString:@"(" intoString:NULL]
                 && [self cmr_scanNum:&grayValue scale:1.0/255.0];
 
